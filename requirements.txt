@@ -1,2 +1,4 @@
 discord==0.0.2
 praw==6.0.0
+pytest==3.9.3
+mock==2.0.0
