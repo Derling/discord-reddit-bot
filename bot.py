@@ -1,6 +1,6 @@
-import logging
 import discord
 import time
+import asyncio
 
 from reddit.client import Client as Reddit
 from utils.lib import (
@@ -12,13 +12,14 @@ from utils.lib import (
 from utils.servers import SERVERS
 from utils.token import TOKEN
 
-POKE_INTERVAL = 1800 # look for new posts every 
-
+POKE_INTERVAL = 1800 # look for new posts every 30 minutes
 client = discord.Client()
-
 
 @client.event
 async def on_ready():
+	client.loop.create_task(main())
+
+async def main():
 	while True:
 		for server in SERVERS:
 			subreddit = server['subreddit']
@@ -38,6 +39,10 @@ async def on_ready():
 					post_string = get_posts_string(post)
 					await client.send_message(channel, post_string)
 
-		time.sleep(POKE_INTERVAL)
+		asyncio.sleep(POKE_INTERVAL)
 
-client.run(TOKEN)
+if __name__ == '__main__':
+	try:
+		client.run(TOKEN)
+	except KeyboardInterrupt:
+		client.close()
