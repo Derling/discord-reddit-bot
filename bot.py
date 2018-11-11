@@ -39,7 +39,7 @@ async def main():
 					post_string = get_posts_string(post)
 					await client.send_message(channel, post_string)
 
-		asyncio.sleep(POKE_INTERVAL)
+		await asyncio.sleep(POKE_INTERVAL)
 
 if __name__ == '__main__':
 	try:
