@@ -38,11 +38,13 @@ def parse_messages(messages):
 
 	Args:
 		messages(list[str]): a list of messages posted in a discord channel
+
+	Returns:
+		A list of the titles of the posts that exists in the discord channel
 	"""
 	titles = []
 	for message in messages:
-		# the -1 is for the additional whitespace
-		# between the title and the url
+		# the -1 is for the additional whitespace between the title and the url
 		msg_title = message.split('http')[0][:-1]
 		titles.append(msg_title)
 	return titles
