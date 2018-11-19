@@ -40,7 +40,7 @@ def parse_messages(messages):
 		messages(list[str]): a list of messages posted in a discord channel
 
 	Returns:
-		A list of the titles of the posts that exists in the discord channel
+		A list of the titles of the messages that exists in the discord channel
 	"""
 	titles = []
 	for message in messages:
@@ -57,7 +57,7 @@ def get_new_posts(messages, posts):
 		posts(list[reddit.Submission]): a list of reddit submission objects
 
 	Returns:
-		A list of strings that 
+		A list of the posts that have not been written in the discord channel
 	"""
 	titles =  parse_messages(messages)
 	new_posts = []
