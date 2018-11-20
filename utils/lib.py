@@ -38,11 +38,13 @@ def parse_messages(messages):
 
 	Args:
 		messages(list[str]): a list of messages posted in a discord channel
+
+	Returns:
+		A list of the titles of the messages that exists in the discord channel
 	"""
 	titles = []
 	for message in messages:
-		# the -1 is for the additional whitespace
-		# between the title and the url
+		# the -1 is for the additional whitespace between the title and the url
 		msg_title = message.split('http')[0][:-1]
 		titles.append(msg_title)
 	return titles
@@ -55,7 +57,7 @@ def get_new_posts(messages, posts):
 		posts(list[reddit.Submission]): a list of reddit submission objects
 
 	Returns:
-		A list of strings that 
+		A list of the posts that have not been written in the discord channel
 	"""
 	titles =  parse_messages(messages)
 	new_posts = []

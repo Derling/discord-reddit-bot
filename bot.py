@@ -50,9 +50,10 @@ async def main():
 			if new_posts:
 				logger.info(f"found {len(new_posts)} new posts")
 				for post in new_posts:
-					logger.info(f"writing new post message in {channel}")
 					post_string = get_posts_string(post)
+					logger.info(f"writing new message: for {post.title}")
 					await client.send_message(channel, post_string)
+					logger.info(f"finished writing message!")
 				logger.info(f"finished writing new post messages in {channel}")
 			else:
 				logger.info(f"no new posts found for {subreddit}")
