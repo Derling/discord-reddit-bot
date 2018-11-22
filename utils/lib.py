@@ -8,13 +8,21 @@ def get_channel(client, server_name, channel_name):
 
 	Returns:
 		A discord Channel object
+
+	Raise:
+		Raises an exception when either of these conditions occur:
+			1)  if the client belongs to a server but the server does not contain the
+				specified channel it will raise an exception
+			2)  if the client does not belong to a server it will raise an exception
 	"""
 	for server in client.servers:
 		if server.name == server_name:
 			for channel in server.channels:
 				if channel.name == channel_name:
 					return channel
-	return None
+			raise Exception(f"Client belongs to {server_name} server but could "
+							f"not find the {channel_name} channel in the server")
+	raise Exception(f"Client does not belong to the {server_name} server")
 
 async def get_channel_messages(client, channel, messages):
 	"""Get the latest messages in a channel.
