@@ -43,3 +43,7 @@ Just like the discord client our reddit client needs credentials to authenticate
 
 Go to the servers.py file and add the subreddits that you want to grab posts from and where you want the messages to be written in.
 
+
+## The Messages
+This example is using the "GameDeals" subreddit. The bot simple writes a message containing the title of the post and the url that is associated with the post. Assuming that Discord's client correctly parses the urls provided by the bot, messages can look like the following image:
+![alt text](https://github.com/Derling/discord-reddit-bot/blob/master/bot_message_sample.png)
