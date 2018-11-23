@@ -1,5 +1,6 @@
 from reddit.lib import init_client
 
+
 class Client:
 	"""Reddit client for interacting with the reddit api."""
 	
