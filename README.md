@@ -14,6 +14,10 @@ This project was built in an environment using **Python3.6.5** to ensure that th
 
 Once we have these things installed we need to [clone](https://git-scm.com/docs/git-clone) this project!
 
+### Install dependencies
+
+run `pip install -r requirements.txt`<br/>
+
 ## Discord Requirements
 
 ### Create a server
@@ -40,10 +44,15 @@ We need to create an app. To do so go [here](https://www.reddit.com/prefs/apps/)
 Just like the discord client our reddit client needs credentials to authenticate. Here we will need your Reddit log in credentials and the client secret and client id of the app we just made. Simply add these values to the cred.py file. This file lives in the reddit folder. We also need a user agent, the convention for reddit scripts is to give it a user agent with the following format "u/{user_name} bot". Where user_name is your reddit user name.
 
 ## The subreddits
-
 Go to the servers.py file and add the subreddits that you want to grab posts from and where you want the messages to be written in.
 
 
 ## The Messages
 This example is using the "GameDeals" subreddit. The bot simple writes a message containing the title of the post and the url that is associated with the post. Assuming that Discord's client correctly parses the urls provided by the bot, messages can look like the following image:
 ![alt text](https://github.com/Derling/discord-reddit-bot/blob/master/bot_message_sample.png)
+
+
+## Tests
+Install the testing dependencies by running `pip install -r requirements-dev.txt`<br/>
+Run the testing script: `. ./run_unit_tests`<br/>
+If you add any new functionality(i.e change message parsing/change message outputs) you can add the tests to the corresponding file where the new functions were added.
