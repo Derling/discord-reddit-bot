@@ -21,7 +21,7 @@ client = discord.Client()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-handler = logging.StreamHandler(sys.stdout)
+handler = logging.FileHandler("last_session.log", mode='w')
 handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(message)s'))
 logger.addHandler(handler)
 
